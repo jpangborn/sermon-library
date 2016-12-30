@@ -1,6 +1,8 @@
 <?php
 	namespace SLK;
 
+	use Page;
+
 	class SermonPage extends Page {
 		public function passagesDescriptions() {
 			$descriptions = array();

@@ -2,7 +2,6 @@
   // Load Dependencies
   load([
     'SLK\\SermonPage'  => __DIR__ . DS . 'models' . DS . 'sermon.php',
-    'cloudkit\\api'    => __DIR__ . DS . 'vendor' . DS . 'autoload.php'
   ]);
 
   // Blueprints
