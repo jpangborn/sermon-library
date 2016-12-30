@@ -1,0 +1,12 @@
+title: Sermon Library - Year
+deletable: false
+pages:
+	num: 
+		mode: date
+		field: date
+	sort: flip
+	template: slk_sermon
+fields:
+	title:
+		label: Title
+		type: text

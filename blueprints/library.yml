@@ -1,0 +1,51 @@
+title: Sermon Library - Main
+pages:
+	template:
+		- year
+		- series-list
+fields:
+	title:
+		label: Title
+		type: text
+	podcast:
+		label: Podcast Settings
+		type: headline
+	podcast_title:
+		label: Title
+		type: text
+	podcast_subtitle:
+		label: Subtitle
+		type: text
+	podcast_author:
+		label: Author
+		type: user
+		width: 1/2
+	podcast_link:
+		label: Link
+		type: url
+		width: 1/2
+	podcast_itunes_category:
+		label: iTunes Category
+		type: text
+		default: Religion & Spirituality
+		width: 1/2
+	podcast_itunes_subcategory:
+		label: iTunes Subcategory
+		type: text
+		default: Christianity
+		width: 1/2
+	podcast_copyright:
+		label: Copyright
+		type: text
+	podcast_description:
+		label: Description
+		type: textarea
+	podcast_owner:
+		label: Administrative Contact
+		type: user
+		width: 1/2
+	podcast_image:
+		label: Cover Image
+		type: select
+		options: images
+		width: 1/2

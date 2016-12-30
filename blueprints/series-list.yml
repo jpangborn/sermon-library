@@ -1,0 +1,11 @@
+title: Sermon Library - Series Main
+pages:
+	num:
+		mode: date
+		field: start_date
+	sort: flip
+	template: series
+fields:
+	title:
+		label: Title
+		type: text

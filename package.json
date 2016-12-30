@@ -1,0 +1,8 @@
+{
+  "name": "Sermon Library for Kirby",
+  "description": "Short description of your plugin",
+  "author": "Joshua Pangborn <joshua.pangborn@gmail.com>",
+  "version": "0.9",
+  "type": "kirby-plugin",
+  "license": "MIT"
+}
