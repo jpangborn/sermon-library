@@ -1,11 +1,11 @@
 title: Sermon Library - Year
 deletable: false
 pages:
-	num: 
+	num:
 		mode: date
 		field: date
 	sort: flip
-	template: slk_sermon
+	template: sermon
 fields:
 	title:
 		label: Title
