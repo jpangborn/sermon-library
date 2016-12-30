@@ -1,7 +1,7 @@
 <?php
   // Load Dependencies
   load([
-    'SLK\\SermonPage'  => __DIR__ . DS . 'models' . DS . 'sermon.php',
+    'slk\\sermonpage'  => __DIR__ . DS . 'models' . DS . 'sermon.php'
   ]);
 
   // Blueprints
