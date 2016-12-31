@@ -1,8 +1,8 @@
 <?php
 	namespace SLK;
 
-	use Kirby\Page;
-	use Kirby\L;
+	use Page;
+	use L;
 
 	class SermonPage extends Page {
 		public function passagesDescriptions() {
