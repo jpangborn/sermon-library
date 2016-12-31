@@ -10,6 +10,9 @@ fields:
   subtitle:
     label: Subtitle
     type: text
+  feature:
+    label: Feature Image
+    type: image
 	podcast:
 		label: Podcast Settings
 		type: headline
