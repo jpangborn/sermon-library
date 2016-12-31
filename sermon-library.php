@@ -26,7 +26,7 @@
   // Options
   $kirby->set('option', 'slk.main.uri', 'sermons/');
   $kirby->set('option', 'slk.series.uri', 'sermons/series/');
-  $kiryb->set('option', 'slk.language', 'en');
+  $kirby->set('option', 'slk.language', 'en');
   $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
   $kirby->set('option', 'slk.esvapi.key', 'IP');
   $kirby->set('option', 'slk.cloudconvert.apikey', '');
