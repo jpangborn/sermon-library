@@ -1,8 +1,10 @@
-<sidebar class="series-sidebar">
-	<h2>Browse by Series</h2>
-	<ul class="series-list">
-	<?php foreach($page->grandchildren()->visible()->filterBy('template', 'slk_series') as $series): ?>
+<section class="box">
+	<header>
+		<h2>Browse by Series</h2>
+	</header>
+	<ul class="style3">
+		<?php foreach($page->grandchildren()->visible()->filterBy('template', 'series') as $series): ?>
 		<li><a href="<?= $series->url() ?>"><?= $series->title() ?></a></li>
-	<?php endforeach ?>
+		<?php endforeach ?>
 	</ul>
-</sidebar>
+</section>
