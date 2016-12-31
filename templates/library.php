@@ -21,6 +21,7 @@
                       <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() ?>
 
                       <?php for($i = 0; $i < $sermons->count(); $i += 2): ?>
+                        <!-- Test -->
                         <?php snippet('sermons-row', array('sermons' => $sermons->slice($i, 2))) ?>
                       <?php endfor ?>
 
