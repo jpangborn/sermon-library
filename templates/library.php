@@ -18,8 +18,6 @@
 										<article class="box post">
 											<?php snippet('page-header') ?>
 
-                      <h2>Recent Sermons</h2>
-
                       <?php foreach($page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() as $sermon): ?>
                       <?php snippet('sermon', array('sermon' => $sermon)) ?>
                       <?php endforeach ?>
