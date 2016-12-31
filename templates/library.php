@@ -17,20 +17,13 @@
 									<div id="content">
 										<article class="box post">
 											<?php snippet('page-header') ?>
-
-                      <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() ?>
-
-                      <?php for($i = 0; $i < $sermons->count(); $i += 2): ?>
-                        <!-- Test -->
-                        <?php snippet('sermons-row', array('sermons' => $sermons->slice($i, 2))) ?>
-                      <?php endfor ?>
-
-                      <!--
-                      <?php foreach($page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() as $sermon): ?>
-                      <?php snippet('sermon', array('sermon' => $sermon)) ?>
-                      <?php endforeach ?>
-                      -->
                     </article>
+
+                    <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() ?>
+                    <?php for($i = 0; $i < $sermons->count(); $i += 2): ?>
+                      <!-- Test -->
+                      <? snippet('sermons-row', array('sermons' => $sermons->slice($i, 2))) ?>
+                    <?php endfor ?>
                   </div>
 
               </div>
