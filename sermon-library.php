@@ -26,11 +26,21 @@
   // Options
   $kirby->set('option', 'slk.main.uri', 'sermons/');
   $kirby->set('option', 'slk.series.uri', 'sermons/series/');
+  $kiryb->set('option', 'slk.language', 'en');
   $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
   $kirby->set('option', 'slk.esvapi.key', 'IP');
   $kirby->set('option', 'slk.cloudconvert.apikey', '');
   $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/api/slkcallback');
   $kirby->set('option', 'slk.cloudconvert.callbackuri', 'api/slkcallback');
+
+  // Language Entries
+  $code = site()->multilang() ? site()->language()->code() : c::get('slk.language', 'en');
+
+  if(is_file(__DIR__ . DS . 'languages' . DS . $code . '.php')) {
+    require_once(__DIR__ . DS . 'languages' . DS . $code . '.php');
+  } else {
+    require_once(__DIR__ . DS . 'languages' . DS . 'en.php');
+  }
 
   // Hooks
   $kirby->set('hook', 'panel.file.upload', function($file) {
