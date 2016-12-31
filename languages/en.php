@@ -1,3 +1,5 @@
+<?php
+
 // Books of the Bible
 l::set('Gen', 'Genesis');
 l::set('Exod	', 'Exodus');
