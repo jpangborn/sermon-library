@@ -1,5 +1,5 @@
 <div class="row 150%">
-  <?php foreach($sermons as $sermon) ?>
+  <?php foreach($sermons as $sermon): ?>
 	<div class="6u 12u(mobile)">
 		<section class="box">
 			<header>
@@ -12,7 +12,7 @@
     	</audio>
       <?php $teacher = $site->users()->find($sermon->teacher()) ?>
     	<p>Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $sermon->date('l, F j, Y') ?></p>
-			<a href="<?= $sermon->url() ?>" class="button style1">More</a>
+			<a href="#" class="button style1">More</a>
 		</section>
 	</div>
   <?php endforeach ?>
