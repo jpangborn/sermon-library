@@ -19,7 +19,7 @@
 											<?php snippet('page-header') ?>
                     </article>
 
-                    <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip() ?>
+                    <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip()->limit(10) ?>
                     <?php for($i = 0; $i < $sermons->count(); $i += 2): ?>
                       <!-- Test -->
                       <? snippet('sermons-row', array('sermons' => $sermons->slice($i, 2))) ?>

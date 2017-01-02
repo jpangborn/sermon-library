@@ -4,6 +4,7 @@
 		<section class="box">
 			<header>
 				<h2><?= $sermon->title()->html() ?></h2>
+        <p>Series: <?= $site->pages()->findByURI($sermon->series())->title() ?></p>
 			</header>
       <audio class="sermon-audio" controls>
     		<?php if($audio = $sermon->audio()->filterBy('extension', 'mp3')->first()): ?>
