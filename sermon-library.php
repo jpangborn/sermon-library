@@ -49,12 +49,15 @@
       // Rename Audio File
       if($file->name() != $file->page()->uid()) {
         try {
-          $file->rename($file->page()->uid() . $file->extension());
+          $file->rename($file->page()->uid() . '.' . $file->extension());
         } catch(Exception $e) {
+          echo 'The file has been renamed.';
+          echo $e->getMessage();
           // Handle Rename Issue
         }
       }
 
+      /*
       if($file->mime() != 'audio/mpeg') {
         $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
@@ -73,6 +76,7 @@
           'file'              => $file->url(),
           'callback'          => c::get('slk.cloudconvert.callbackurl')
         ]);
+        */
       }
     }
 
