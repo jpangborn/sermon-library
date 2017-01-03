@@ -78,7 +78,7 @@
         ]);
         */
       }
-    }
+    });
 
     // Routes
     $kirby->set('route', array(
