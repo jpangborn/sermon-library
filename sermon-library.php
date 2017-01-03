@@ -53,7 +53,6 @@
         } catch(Exception $e) {
           echo 'The file has been renamed.';
           echo $e->getMessage();
-          // Handle Rename Issue
         }
       }
 
@@ -84,9 +83,6 @@
     $kirby->set('route', array(
       'pattern'     => c::get('slk.cloudconvert.callbackuri'),
       'action'      => function() {
-        $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'), get('id'));
-
-
+        //$cloudconvert = new Api(c::get('slk.cloudconvert.apikey'), get('id'));
       }
     ));
-  });
