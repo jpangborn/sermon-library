@@ -49,9 +49,10 @@
       // Rename Audio File
       if($file->name() != $file->page()->uid()) {
         try {
-          $file->rename($file->page()->uid() . '.' . $file->extension());
+          $filename = $file->page()->uid() . '.' . $file->extension();
+          $file->rename($filename);
         } catch(Exception $e) {
-          echo 'The file has been renamed.';
+          echo 'The file has not been renamed.';
           echo $e->getMessage();
         }
       }
