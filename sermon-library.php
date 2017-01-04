@@ -45,8 +45,8 @@
 
   // Hooks
   $kirby->set('hook', 'panel.file.upload', function($file) {
+    /*
     if($file->type() == 'audio') {
-      /*
       // Rename Audio File
       if($file->name() != $file->page()->uid()) {
         try {
@@ -57,8 +57,7 @@
           echo $e->getMessage();
         }
       }
-      */
-      /*
+      
       if($file->mime() != 'audio/mpeg') {
         $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
@@ -77,8 +76,9 @@
           'file'              => $file->url(),
           'callback'          => c::get('slk.cloudconvert.callbackurl')
         ]);
-        */
+
       }
+      */
     });
 
     // Routes
