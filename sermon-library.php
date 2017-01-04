@@ -46,17 +46,18 @@
   // Hooks
   $kirby->set('hook', 'panel.file.upload', function($file) {
     if($file->type() == 'audio') {
+      /*
       // Rename Audio File
       if($file->name() != $file->page()->uid()) {
         try {
-          $filename = $file->page()->uid() . '.' . $file->extension();
+          $filename = "{$file->page()->uid()}.{$file->extension()}";
           $file->rename($filename);
         } catch(Exception $e) {
           echo 'The file has not been renamed.';
           echo $e->getMessage();
         }
       }
-
+      */
       /*
       if($file->mime() != 'audio/mpeg') {
         $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
