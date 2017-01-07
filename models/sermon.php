@@ -4,6 +4,7 @@
 	use Kirby;
 	use Page;
 	use L;
+	use C;
 	use Remote;
 
 	class SermonPage extends Page {
@@ -35,7 +36,7 @@
 
 		public function passageText($passage, $params = array()) {
 			$defaults = array(
-				'key'														=> $kirby->option('slk.esvapi.key', 'TEST'),
+				'key'														=> $kirby->get('option', 'slk.esvapi.key', 'TEST'),
 				'include-passage-references'	 	=> false,
 				'include-footnotes'							=> false,
 				'include-audio-link'						=> false
@@ -45,7 +46,7 @@
 
 			$options['passage'] = $passage;
 
-			$scripture = remote::get($kirby->option('slk.esvapi.url'), array('data' => $options));
+			$scripture = remote::get($kirby->get('option', 'slk.esvapi.url'), array('data' => $options));
 
 			if($scripture->code() == '200') {
 				return $scripture->content();
