@@ -1,6 +1,7 @@
 <?php
 	namespace SLK;
 
+	use Kirby;
 	use Page;
 	use L;
 	use C;
