@@ -8,7 +8,7 @@
 
       <!-- Main -->
 				<div class="wrapper style2">
-					<div class="title"><?= $page->title()->html() ?></div>
+					<div class="title">Sermon Details</div>
 					<div id="main" class="container">
 						<div class="row 150%">
 							<div class="8u 12u(mobile)">
@@ -18,7 +18,8 @@
 										<article class="box post">
 											<?php snippet('page-header') ?>
 
-                			<h2 class="sermon-series">Series: <?= $site->pages()->findByURI($page->series())->title() ?></h2>
+                      <h2><?= $page->title()->html() ?></h2>
+                      <h3>Series: <?= $site->pages()->findByURI($page->series())->title() ?></h3>
 
                 			<audio class="sermon-audio" controls>
                 				<?php if($audio = $page->audio()->filterBy('extension', 'mp3')->first()): ?>
@@ -26,23 +27,22 @@
                 				<?php endif ?>
                 			</audio>
 
+                      <?php $teacher = $site->users()->find($page->teacher()) ?>
+                			<p class="sermon-info">Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?></p>
+
                 			<?php if(!$page->description()->empty()): ?>
-                			<h5 class="sermon-description">Description</h5>
+                			<h4>Description</h4>
                 			<?= $page->description()->kirbytext() ?>
                 			<?php endif ?>
 
-                			<h5 class="sermon-scripture">Scripture Covered</h5>
-                			<ul class="sermon-passages">
+                			<h4>Scripture Covered</h4>
+                			<ul>
                 			<?php foreach($page->passagesDescriptions() as $passage): ?>
                 				<li><?= $passage ?></li>
 
                 				<?= $page->passageText($passage) ?>
                 			<?php endforeach ?>
                 			</ul>
-
-                			<?php $teacher = $site->users()->find($page->teacher()) ?>
-                			<p class="sermon-info">Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?></p>
-
                     </article>
                   </div>
 
