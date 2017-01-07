@@ -18,7 +18,6 @@
 										<article class="box post">
                       <header class="style1">
                         <h2><?= $page->title()->html() ?></h2>
-                        <p>Series: <?= $series->title() ?></p>
                       </header>
                       <?php if(!$series->cover()->empty()): ?>
                       <a href="#" class="image featured">
@@ -32,7 +31,10 @@
                 				<?php endif ?>
                 			</audio>
 
-                			<p>Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?></p>
+                      <p>
+                        Series: <?= $series->title() ?><br>
+                			  Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?>
+                      </p>
 
                 			<?php if(!$page->description()->empty()): ?>
                 			<h4>Description</h4>
