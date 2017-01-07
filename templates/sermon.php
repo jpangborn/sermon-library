@@ -20,9 +20,9 @@
                         <h2><?= $page->title()->html() ?></h2>
                         <p>Series: <?= $series->title() ?></p>
                       </header>
-                      <?php if(!$series->feature()->empty()): ?>
+                      <?php if(!$series->cover()->empty()): ?>
                       <a href="#" class="image featured">
-                        <img src="<?= $series->image($series->feature())->url() ?>">
+                        <img src="<?= $series->image($series->cover())->url() ?>">
                       </a>
                       <?php endif ?>
 
