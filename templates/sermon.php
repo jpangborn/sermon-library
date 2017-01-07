@@ -16,10 +16,15 @@
                 <!-- Content -->
 									<div id="content">
 										<article class="box post">
-											<?php snippet('page-header') ?>
-
-                      <h2><?= $page->title()->html() ?></h2>
-                      <h3>Series: <?= $site->pages()->findByURI($page->series())->title() ?></h3>
+                      <header class="style1">
+                        <h2><?= $page->title()->html() ?></h2>
+                        <p>Series: <?= $series->title() ?></p>
+                      </header>
+                      <?php if(!$series->feature()->empty()): ?>
+                      <a href="#" class="image featured">
+                        <img src="<?= $series->image($series->feature())->url() ?>">
+                      </a>
+                      <?php endif ?>
 
                 			<audio class="sermon-audio" controls>
                 				<?php if($audio = $page->audio()->filterBy('extension', 'mp3')->first()): ?>
@@ -27,8 +32,7 @@
                 				<?php endif ?>
                 			</audio>
 
-                      <?php $teacher = $site->users()->find($page->teacher()) ?>
-                			<p class="sermon-info">Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?></p>
+                			<p>Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?></p>
 
                 			<?php if(!$page->description()->empty()): ?>
                 			<h4>Description</h4>

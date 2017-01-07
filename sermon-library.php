@@ -21,6 +21,9 @@
   $kirby->set('snippet',   'sermon',         __DIR__ . DS . 'snippets' . DS . 'sermon.php');
   $kirby->set('snippet',   'sermons-row',    __DIR__ . DS . 'snippets' . DS . 'sermons-row.php');
 
+  // Controllers
+  $kirby->set('controller', 'sermon',     __DIR__ . DS . 'controllers' . DS . 'sermon.php');
+
   // Models
   $kirby->set('page::model', 'sermon', 'SLK\\SermonPage');
 
