@@ -50,7 +50,7 @@
 			if($scripture->code() == '200') {
 				return $scripture->content();
 			} else {
-				return $scripture->message();
+				return $scripture->code() . ' - ' . $scripture->message() . ' - ' . $scripture->info();
 			}
 
 		}
