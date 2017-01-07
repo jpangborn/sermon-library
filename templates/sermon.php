@@ -37,18 +37,15 @@
                       </p>
 
                 			<?php if(!$page->description()->empty()): ?>
-                			<h4>Description</h4>
+                			<h2>Description</h2>
                 			<?= $page->description()->kirbytext() ?>
                 			<?php endif ?>
 
-                			<h4>Scripture Covered</h4>
-                			<ul>
+                			<h2>Scripture Covered</h2>
                 			<?php foreach($page->passagesDescriptions() as $passage): ?>
-                				<li><?= $passage ?></li>
-
+                				<h3><?= $passage ?></h3>
                 				<?= $page->passageText($passage) ?>
                 			<?php endforeach ?>
-                			</ul>
                     </article>
                   </div>
 
