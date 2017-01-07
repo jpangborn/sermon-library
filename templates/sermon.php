@@ -25,15 +25,15 @@
                       </a>
                       <?php endif ?>
 
-                			<audio class="sermon-audio" controls>
+                			<audio controls>
                 				<?php if($audio = $page->audio()->filterBy('extension', 'mp3')->first()): ?>
                 				<source src="<?= $audio->url() ?>" type="<?= $audio->mime() ?>">
                 				<?php endif ?>
                 			</audio>
 
                       <p>
-                        Series: <?= $series->title() ?><br>
-                			  Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?>
+                        Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?><br>
+                        Series: <?= $series->title() ?>
                       </p>
 
                 			<?php if(!$page->description()->empty()): ?>

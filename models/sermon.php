@@ -47,7 +47,12 @@
 
 			$scripture = remote::get(c::get('slk.esvapi.url'), array('data' => $options));
 
-			return $scripture->content();
+			if($scripture->code() == '200') {
+				return $scripture->content();
+			} else {
+				return $scripture->message();
+			}
+
 		}
 	}
 ?>
