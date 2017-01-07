@@ -51,7 +51,7 @@
 
                 <!-- Sidebar -->
   								<div id="sidebar">
-
+                    <?php snippet('series-sidebar') ?>
                   </div>
               </div>
             </div>
