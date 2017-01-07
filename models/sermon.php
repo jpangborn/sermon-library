@@ -3,6 +3,8 @@
 
 	use Page;
 	use L;
+	use C;
+	use Remote;
 
 	class SermonPage extends Page {
 		public function passagesDescriptions() {
