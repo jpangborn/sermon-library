@@ -4,6 +4,16 @@
     'slk\\sermonpage'  => __DIR__ . DS . 'models' . DS . 'sermon.php'
   ]);
 
+  // Options
+  $kirby->set('option', 'slk.main.uri', 'sermons/');
+  $kirby->set('option', 'slk.series.uri', 'sermons/series/');
+  $kirby->set('option', 'slk.language', 'en');
+  $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
+  $kirby->set('option', 'slk.esvapi.key', 'IP');
+  $kirby->set('option', 'slk.cloudconvert.apikey', '');
+  $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/api/slkcallback');
+  $kirby->set('option', 'slk.cloudconvert.callbackuri', 'api/slkcallback');
+
   // Blueprints
   $kirby->set('blueprint', 'library',     __DIR__ . DS . 'blueprints' . DS . 'library.yml');
   $kirby->set('blueprint', 'series-list', __DIR__ . DS . 'blueprints' . DS . 'series-list.yml');
@@ -26,16 +36,6 @@
 
   // Models
   $kirby->set('page::model', 'sermon', 'SLK\\SermonPage');
-
-  // Options
-  $kirby->set('option', 'slk.main.uri', 'sermons/');
-  $kirby->set('option', 'slk.series.uri', 'sermons/series/');
-  $kirby->set('option', 'slk.language', 'en');
-  $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
-  $kirby->set('option', 'slk.esvapi.key', 'IP');
-  $kirby->set('option', 'slk.cloudconvert.apikey', '');
-  $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/api/slkcallback');
-  $kirby->set('option', 'slk.cloudconvert.callbackuri', 'api/slkcallback');
 
   // Language Entries
   $code = site()->multilang() ? site()->language()->code() : c::get('slk.language', 'en');
