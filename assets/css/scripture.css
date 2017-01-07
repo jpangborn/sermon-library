@@ -1,0 +1,50 @@
+.esv-text p {
+  text-indent: 2em;
+}
+
+.esv-text .extra-space {
+  margin-top: 2em;
+}
+.esv-text .same-paragraph {
+  text-indent: 0;
+}
+
+.esv-text .block-indent p {
+  text-indent: 0;
+  padding-left: 2.5em;
+}
+
+.esv-text .indent {
+  padding-left: 2em;
+}
+
+.esv-text .indent-2, .esv-text .psalm-doxology-line {
+  padding-left: 4em;
+}
+
+.esv-text .declares-line {
+  padding-left: 6em;
+}
+
+.esv-text .selah {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+.esv-text .small-caps,
+.esv-text .textual-note,
+.esv-text .psalm-acrostic-title {
+  font-variant: small-caps;
+}
+
+.esv-text .speaker {
+	padding-left: 10em;
+	font-variant: small-caps;
+	margin-bottom: -1em;
+}
+
+.esv-text .verse-num, .esv-text .chapter-num {
+  font-size: 80%;
+  font-weight: bold;
+  vertical-align: text-top;
+}
