@@ -1,10 +1,13 @@
 title: Sermon Library - Series
 pages: false
 fields:
-	title:
-		label: Series Title
-		type: text
-	start_date:
-		label: Start Date
-		type: date
-		default: today
+  title:
+    label: Series Title
+    type: text
+  cover:
+    label: Cover Image
+    type: image
+  start_date:
+    label: Start Date
+    type: date
+    default: today
