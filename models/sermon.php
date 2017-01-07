@@ -38,7 +38,8 @@
 				'key'														=> kirby()->get('option', 'slk.esvapi.key', 'TEST'),
 				'include-passage-references'	 	=> false,
 				'include-footnotes'							=> false,
-				'include-audio-link'						=> false
+				'include-audio-link'						=> false,
+				'include-headings'							=> false
 			);
 
 			$options = array_merge($defaults, $params);
