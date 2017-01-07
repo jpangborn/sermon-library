@@ -5,4 +5,4 @@
     $teacher = $site->users()->find($page->teacher());
 
     return compact('series', 'teacher');
-  }
+  };
