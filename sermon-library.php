@@ -76,7 +76,8 @@
           'callback'          => c::get('slk.cloudconvert.callbackurl')
         ]);
       }
-    });
+    }
+  });
 
     // Routes
     $kirby->set('route', array(
