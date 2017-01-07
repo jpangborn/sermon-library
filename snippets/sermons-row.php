@@ -16,7 +16,7 @@
         Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?><br>
         on <?= $sermon->date('l, F j, Y') ?>
       </p>
-			<a href="#" class="button style2">View Details</a>
+			<a href="<?= $sermon->url() ?>" class="button style2">View Details</a>
 		</section>
 	</div>
   <?php endforeach ?>
