@@ -47,7 +47,7 @@
 
 			$scripture = remote::get(c::get('slk.esvapi.url'), array('data' => $options));
 
-			return $scripture;
+			return $scripture->content();
 		}
 	}
 ?>
