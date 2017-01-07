@@ -44,7 +44,6 @@
   }
 
   // Hooks
-  /*
   $kirby->set('hook', 'panel.file.upload', function($file) {
     if($file->type() == 'audio') {
       // Rename Audio File
@@ -78,8 +77,7 @@
         ]);
       }
     });
-    */
-    
+
     // Routes
     $kirby->set('route', array(
       'pattern'     => c::get('slk.cloudconvert.callbackuri'),
