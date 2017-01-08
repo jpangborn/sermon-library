@@ -28,6 +28,16 @@
                       <?php for($i = 0; $i < $series->count(); $i += 2): ?>
                         <? snippet('sermons-row', array('sermons' => $series->slice($i, 2))) ?>
                       <?php endfor ?>
+
+                      <nav class="pagination">
+                        <?php if($pagination->hasPrevPage()): ?>
+                        <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style2">Previous Sermons</a>
+                        <?php endif ?>
+
+                        <?php if($pagination->hasNextPage()): ?>
+                        <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style2">Next Sermons</a>
+                        <?php endif ?>
+                      </nav>
                     </article>
                   </div>
 
