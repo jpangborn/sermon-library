@@ -1,5 +1,6 @@
 .esv-text p {
   text-indent: 2em;
+  margin-bottom: 1em;
 }
 
 .esv-text .extra-space {
@@ -21,10 +22,6 @@
 .esv-text .block-indent p {
   text-indent: 0;
   padding-left: 2.5em;
-}
-
-.esv-text .block-indent .line-group {
-  margin-bottom: 1em;
 }
 
 .esv-text .block-indent .verse-num,
