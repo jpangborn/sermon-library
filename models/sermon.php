@@ -48,12 +48,7 @@
 
 			$scripture = remote::get(kirby()->get('option', 'slk.esvapi.url'), array('data' => $options));
 
-			if($scripture->code() == '200') {
-				return $scripture->content();
-			} else {
-				return $scripture->code() . ' - ' . $scripture->message() . ' - ' . print_r($scripture->info(), true);
-			}
-
+			return $scripture;
 		}
 	}
 ?>
