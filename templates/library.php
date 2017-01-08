@@ -1,6 +1,6 @@
 <?php snippet('html-start') ?>
 
-  <body class="no-sidebar">
+  <body class="right-sidebar">
     <div id="page-wrapper">
 
       <!-- Header -->

@@ -33,6 +33,7 @@
 
   // Controllers
   $kirby->set('controller', 'sermon',     __DIR__ . DS . 'controllers' . DS . 'sermon.php');
+  $kirby->set('controller', 'series',     __DIR__ . DS . 'controllers' . DS . 'series.php');
 
   // Models
   $kirby->set('page::model', 'sermon', 'SLK\\SermonPage');
