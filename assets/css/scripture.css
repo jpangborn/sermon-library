@@ -12,7 +12,7 @@
 
 .esv-text .verse-num, .esv-text .chapter-num {
   font-size: 80%;
-  font-weight: bold;
+  font-weight: 300;
   vertical-align: top;
   padding-right: .15em;
 	padding-left: .25em;
@@ -21,6 +21,10 @@
 .esv-text .block-indent p {
   text-indent: 0;
   padding-left: 2.5em;
+}
+
+.esv-text .block-indent .line-group {
+  margin-top: 1em;
 }
 
 .esv-text .block-indent .verse-num,
