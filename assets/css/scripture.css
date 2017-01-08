@@ -5,13 +5,27 @@
 .esv-text .extra-space {
   margin-top: 2em;
 }
+
 .esv-text .same-paragraph {
   text-indent: 0;
+}
+
+.esv-text .verse-num, .esv-text .chapter-num {
+  font-size: 80%;
+  font-weight: bold;
+  vertical-align: top;
+  padding-right: .15em;
+	padding-left: .25em;
 }
 
 .esv-text .block-indent p {
   text-indent: 0;
   padding-left: 2.5em;
+}
+
+.esv-text .block-indent .verse-num,
+.esv-text .block-indent .chapter-num {
+  padding-left: 0;
 }
 
 .esv-text .indent {
@@ -41,10 +55,4 @@
 	padding-left: 10em;
 	font-variant: small-caps;
 	margin-bottom: -1em;
-}
-
-.esv-text .verse-num, .esv-text .chapter-num {
-  font-size: 80%;
-  font-weight: bold;
-  vertical-align: text-top;
 }
