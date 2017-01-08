@@ -31,7 +31,8 @@
 
                 <!-- Sidebar -->
   								<div id="sidebar">
-                    <?php snippet('series-sidebar') ?>
+                    <?php $series_list = $page->grandchildren()->visible()->filterBy('template', 'series')->flip() ?>
+                    <?php snippet('series-sidebar', array('series_list' => $series_list)) ?>
                   </div>
               </div>
             </div>

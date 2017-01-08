@@ -54,7 +54,8 @@
 
                 <!-- Sidebar -->
   								<div id="sidebar">
-                    <?php snippet('series-sidebar') ?>
+                    <?php $series_list = page($kirby->get('option', 'slk.main.uri'))->grandchildren()->visible()->filterBy('template', 'series')->flip() ?>
+                    <?php snippet('series-sidebar', array('series_list' => $series_list)) ?>
                   </div>
               </div>
             </div>
