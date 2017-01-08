@@ -29,15 +29,19 @@
                         <? snippet('sermons-row', array('sermons' => $series->slice($i, 2))) ?>
                       <?php endfor ?>
 
-                      <nav class="pagination">
+                      <ul class="actions actions-centered">
                         <?php if($pagination->hasPrevPage()): ?>
-                        <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style2">Previous Sermons</a>
+                        <li>
+                          <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style2">Previous Sermons</a>
+                        </li>
                         <?php endif ?>
 
                         <?php if($pagination->hasNextPage()): ?>
-                        <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style2">Next Sermons</a>
+                        <li>
+                          <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style2">Next Sermons</a>
+                        </li>
                         <?php endif ?>
-                      </nav>
+                      </ul>
                     </article>
                   </div>
 
