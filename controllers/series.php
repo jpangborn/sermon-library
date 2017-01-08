@@ -4,4 +4,4 @@
     $pagination = $series->pagination();
 
     return compact('series', 'pagination');
-  }
+  };
