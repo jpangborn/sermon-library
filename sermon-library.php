@@ -49,6 +49,53 @@
     require_once(__DIR__ . DS . 'languages' . DS . 'en.php');
   }
 
+  // Pages Methods
+  $kirby->set('pages::method', 'podcast', function($pages, $params = array()) {
+    // Set Defaults for Podcast options
+		$defaults = array(
+			'url' 						 => url(),
+			'title'					   => 'Podcast',
+			'subtitle'  			 => null,
+			'description' 		 =>	null,
+			'author'					 => null,
+			'image'					   =>	null,
+			'category'				 => null,
+			'subcategory' 		 =>	null,
+			'explicit'				 => 'Clean',
+			'language'				 => 'en-us',
+			'copyright'			   =>	'Copyright',
+			'lastBuildDate'    => date(DateTime::RFC822),
+			'owner_name'			 => null,
+			'owner_email' 		 => null,
+			'generator'			   => kirby()->option('podcast.generator', 'Sermon Library for Kirby'),
+			'docs'						 => 'http://www.apple.com/itunes/podcasts/specs.htm',
+			'datefield'			   => 'date',
+			'header'					 => true
+		);
+
+		// Merge user supplied options with defaults
+		$options = array_merge($default, $params);
+
+		// Sort items by date
+		$items = $pages->sortBy($options['datefield'], 'desc');
+
+		// Add the items
+		$options['items'] = $items;
+
+		// Set the pubDate
+		$options['pubDate'] = $items->first()->date(DateTime::RFC822, $options['datefield']);
+
+		// Send the XML header
+		if($options['header']) header::type('text/xml');
+
+		$rss = '<?xml version="1.0" encoding="UTF-8">';
+
+		// Build Podcast RSS Feed
+		$rss .= tpl::load(__DIR__ . DS . 'template' . DS . 'podcast.php', $options);
+
+		return $rss;
+  });
+
   // Hooks
   $kirby->set('hook', 'panel.file.upload', function($file) {
     if($file->type() == 'audio') {
