@@ -23,7 +23,9 @@
 
   // Templates
   $kirby->set('template',  'library',     __DIR__ . DS . 'templates' . DS . 'library.php');
+  $kirby->set('template',  'library',     __DIR__ . DS . 'templates' . DS . 'library.rss.php');
   $kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.php');
+  $kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.rss.php');
   $kirby->set('template',  'sermon',      __DIR__ . DS . 'templates' . DS . 'sermon.php');
 
   // Snippets
