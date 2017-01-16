@@ -32,13 +32,13 @@
                       <ul class="actions actions-centered">
                         <?php if($pagination->hasPrevPage()): ?>
                         <li>
-                          <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style2">Previous Sermons</a>
+                          <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style1">Previous Sermons</a>
                         </li>
                         <?php endif ?>
 
                         <?php if($pagination->hasNextPage()): ?>
                         <li>
-                          <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style2">Next Sermons</a>
+                          <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style1">Next Sermons</a>
                         </li>
                         <?php endif ?>
                       </ul>
@@ -50,6 +50,8 @@
 
                 <!-- Sidebar -->
   								<div id="sidebar">
+                    <?php snippet('search-sidebar'); ?>
+
                     <?php $series_list = page($kirby->get('option', 'slk.main.uri'))->grandchildren()->visible()->filterBy('template', 'series')->flip() ?>
                     <?php snippet('series-sidebar', array('series_list' => $series_list)) ?>
                   </div>
