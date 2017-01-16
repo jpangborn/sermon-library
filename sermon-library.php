@@ -30,6 +30,7 @@
 
   // Snippets
   $kirby->set('snippet',   'series-sidebar', __DIR__ . DS . 'snippets' . DS . 'series-sidebar.php');
+  $kirby->set('snippet',   'search-sidebar', __DIR__ . DS . 'snippets' . DS . 'search-sidebar.php');
   $kirby->set('snippet',   'sermon',         __DIR__ . DS . 'snippets' . DS . 'sermon.php');
   $kirby->set('snippet',   'sermons-row',    __DIR__ . DS . 'snippets' . DS . 'sermons-row.php');
 
