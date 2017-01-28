@@ -27,6 +27,7 @@
   $kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.php');
   //$kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.rss.php');
   $kirby->set('template',  'sermon',      __DIR__ . DS . 'templates' . DS . 'sermon.php');
+  $kirby->set('template',  'search',      __DIR__ . DS . 'templates' . DS . 'search.php');
 
   // Snippets
   $kirby->set('snippet',   'series-sidebar', __DIR__ . DS . 'snippets' . DS . 'series-sidebar.php');
@@ -37,6 +38,7 @@
   // Controllers
   $kirby->set('controller', 'sermon',     __DIR__ . DS . 'controllers' . DS . 'sermon.php');
   $kirby->set('controller', 'series',     __DIR__ . DS . 'controllers' . DS . 'series.php');
+  $kirby->set('controller', 'search',     __DIR__ . DS . 'controllers' . DS . 'search.php');
 
   // Models
   $kirby->set('page::model', 'sermon', 'SLK\\SermonPage');
