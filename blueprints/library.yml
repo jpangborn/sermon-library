@@ -3,6 +3,7 @@ pages:
   template:
     - year
     - series-list
+    - search
 fields:
   title:
     label: Title
