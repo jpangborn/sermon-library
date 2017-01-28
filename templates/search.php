@@ -18,7 +18,7 @@
                 <form method="post" action="#">
                   <div class="row">
                     <div class="12u">
-                      <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= esc($results->query()) ?>">
+                      <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
                     </div>
                   </div>
                   <div class="row">
