@@ -20,6 +20,7 @@
   $kirby->set('blueprint', 'series',      __DIR__ . DS . 'blueprints' . DS . 'series.yml');
   $kirby->set('blueprint', 'year',        __DIR__ . DS . 'blueprints' . DS . 'year.yml');
   $kirby->set('blueprint', 'sermon',      __DIR__ . DS . 'blueprints' . DS . 'sermon.yml');
+  $kirby->set('blueprint', 'search',      __DIR__ . DS . 'blueprints' . DS . 'search.yml');
 
   // Templates
   $kirby->set('template',  'library',     __DIR__ . DS . 'templates' . DS . 'library.php');

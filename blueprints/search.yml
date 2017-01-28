@@ -1,0 +1,6 @@
+title: Sermon Library - Search
+pages: false
+fields:
+  title:
+    label: Title
+    type: text
