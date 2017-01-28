@@ -2,7 +2,7 @@
 	<header>
 		<h2>Search Sermons</h2>
 	</header>
-	<form method="post" action="#">
+	<form method="post" action="<?= page(kirby()->get('option', 'slk.main.uri'))->find('search')->url() ?>">
 		<div class="row">
 			<div class="12u">
 				<input type="text" name="q" id="search-query" placeholder="Search...">
