@@ -32,6 +32,10 @@
                       </div>
                     </div>
                   </form>
+
+                  <p>
+                    Found <?= $results->totalCount() ?> sermons.
+                  </p>
                 </div>
             </div>
             <div class="8u 12u(mobile)">
