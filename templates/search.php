@@ -17,10 +17,12 @@
 
                 <form method="post" action="#">
                   <div class="row">
-                    <div class="8u 12u(mobile)">
+                    <div class="12u">
                       <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
                     </div>
-                    <div class="4u 12u(mobile)">
+                  </div>
+                  <div class="row">
+                    <div class="12u">
                       <ul class="actions">
                         <li><input type="submit" class="style1" value="Search"></li>
                       </ul>

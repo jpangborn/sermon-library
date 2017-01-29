@@ -4,7 +4,7 @@
     $page  = param('page');
 
     if($query) {
-      $results    = algolia()->search($query, $page);
+      $results    = algolia()->search($query, $page)->paginate(10);
       $pagination = $results->pagination();
     } else {
       $results    = array();
