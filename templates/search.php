@@ -30,6 +30,10 @@
                   </div>
                 </form>
 
+                <header class="style1">
+                  <h2>Results</h2>
+                </header>
+
                 <?php foreach($results as $result): ?>
                   <div class="row">
                     <div class="12u">
