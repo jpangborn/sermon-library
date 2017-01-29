@@ -33,9 +33,8 @@
                 <?php foreach($results as $result): ?>
                   <div class="row">
                     <div class="12u">
-                      <a href="<?= $result->url() ?>">
-                        <?= html($result->title()) ?>
-                      </a>
+                      <a href="<?= $result->url() ?>"><h3><?= html($result->title()) ?></h3></a>
+                      <p>Part of the <?= $result->series() ?> series. Taught by <?= $result->teacher() ?> on <?= $result->date() ?></p>
                     </div>
                   </div>
                 <?php endforeach ?>
