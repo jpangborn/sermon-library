@@ -19,11 +19,13 @@
                   <div class="row">
                     <div class="12u">
                       <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
-                      <section class="highlight">
-                        <ul class="actions">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="12u">
+                      <ul class="actions actions-centered">
                           <li><input type="submit" class="style1" value="Search"></li>
-                        </ul>
-                      </section>
+                      </ul>
                     </div>
                   </div>
                 </form>
