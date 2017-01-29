@@ -14,6 +14,10 @@
 
               <!-- Sidebar -->
                 <div id="sidebar">
+                  <header>
+                		<h2>Search Sermons</h2>
+                	</header>
+
                   <form method="post" action="#">
                     <div class="row">
                       <div class="12u">
@@ -37,34 +41,34 @@
                 <article class="box post">
                   <?php snippet('page-header') ?>
 
-                <header class="style1">
-                  <h2>Results</h2>
-                </header>
+                  <header class="style1">
+                    <h2>Results</h2>
+                  </header>
 
-                <?php foreach($results as $result): ?>
-                  <div class="row">
-                    <div class="12u">
-                      <a href="<?= $result->url() ?>"><h2><?= html($result->title()) ?></h2></a>
-                      <p>Part of the <?= $result->series() ?> series. Taught by <?= $result->teacher() ?> on <?= $result->date('F j, Y') ?>.</p>
+                  <?php foreach($results as $result): ?>
+                    <div class="row">
+                      <div class="12u">
+                        <a href="<?= $result->url() ?>"><h2><?= html($result->title()) ?></h2></a>
+                        <p>Part of the <?= $result->series() ?> series. Taught by <?= $result->teacher() ?> on <?= $result->date('F j, Y') ?>.</p>
+                      </div>
                     </div>
-                  </div>
-                <?php endforeach ?>
+                  <?php endforeach ?>
 
-                <ul class="actions actions-centered">
-                  <?php if($pagination->hasPrevPage()): ?>
-                  <li>
-                    <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style1">Previous Results</a>
-                  </li>
-                  <?php endif ?>
+                  <ul class="actions actions-centered">
+                    <?php if($pagination->hasPrevPage()): ?>
+                    <li>
+                      <a href="<?php echo $pagination->prevPageUrl() ?>" class="button style1">Previous Results</a>
+                    </li>
+                    <?php endif ?>
 
-                  <?php if($pagination->hasNextPage()): ?>
-                  <li>
-                    <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style1">More Results</a>
-                  </li>
-                  <?php endif ?>
-                </ul>
-              </article>
-            </div>
+                    <?php if($pagination->hasNextPage()): ?>
+                    <li>
+                      <a href="<?php echo $pagination->nextPageUrl() ?>" class="button style1">More Results</a>
+                    </li>
+                    <?php endif ?>
+                  </ul>
+                </article>
+              </div>
           </div>
         </div>
       </div>
