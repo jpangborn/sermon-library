@@ -17,12 +17,10 @@
 
                 <form method="post" action="#">
                   <div class="row">
-                    <div class="12u">
+                    <div class="8u 12u(mobile)">
                       <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="12u">
+                    <div class="4u 12u(mobile)">
                       <ul class="actions">
                         <li><input type="submit" class="style1" value="Search"></li>
                       </ul>
@@ -33,8 +31,8 @@
                 <?php foreach($results as $result): ?>
                   <div class="row">
                     <div class="12u">
-                      <a href="<?= $result->url() ?>"><h3><?= html($result->title()) ?></h3></a>
-                      <p>Part of the <?= $result->series() ?> series. Taught by <?= $result->teacher() ?> on <?= $result->date() ?></p>
+                      <a href="<?= $result->url() ?>"><h2><?= html($result->title()) ?></h2></a>
+                      <p>Part of the <?= $result->series() ?> series. Taught by <?= $result->teacher() ?> on <?= $result->date('F j, Y') ?>.</p>
                     </div>
                   </div>
                 <?php endforeach ?>
