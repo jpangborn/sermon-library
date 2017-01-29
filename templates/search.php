@@ -1,6 +1,6 @@
 <?php snippet('html-start') ?>
 
-  <body class="no-sidebar">
+  <body class="left-sidebar">
     <div id="page-wrapper">
 
       <!-- Header -->
@@ -9,26 +9,13 @@
       <div class="wrapper style2">
         <div class="title"><?= $page->title()->html() ?></div>
         <div id="main" class="container">
+          <div class="row 150%">
+            <div class="8u 12u(mobile)">
 
-          <!-- Content -->
-            <div id="content">
-              <article class="box post">
-                <?php snippet('page-header') ?>
-
-                <form method="post" action="#">
-                  <div class="row">
-                    <div class="12u">
-                      <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="12u">
-                      <ul class="actions actions-centered">
-                          <li><input type="submit" class="style1" value="Search"></li>
-                      </ul>
-                    </div>
-                  </div>
-                </form>
+            <!-- Content -->
+              <div id="content">
+                <article class="box post">
+                  <?php snippet('page-header') ?>
 
                 <header class="style1">
                   <h2>Results</h2>
@@ -58,6 +45,27 @@
                 </ul>
               </article>
             </div>
+            <div class="4u 12u(mobile)">
+
+              <!-- Sidebar -->
+                <div id="sidebar">
+                  <form method="post" action="#">
+                    <div class="row">
+                      <div class="12u">
+                        <input type="text" name="q" id="search-query" placeholder="Search..." value="<?= r($results, esc($results->query())) ?>">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="12u">
+                        <ul class="actions">
+                            <li><input type="submit" class="style1" value="Search"></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
 
