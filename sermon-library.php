@@ -1,4 +1,9 @@
 <?php
+  require __DIR__ . DS . 'vendor' . DS . 'autoload.php';
+
+  use \CloudConvert\Api;
+  use \CloudConvert\Process;
+
   // Load Dependencies
   load([
     'slk\\sermonpage'  => __DIR__ . DS . 'models' . DS . 'sermon.php'
@@ -11,8 +16,8 @@
   $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
   $kirby->set('option', 'slk.esvapi.key', 'IP');
   $kirby->set('option', 'slk.cloudconvert.apikey', '');
-  $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/api/slkcallback');
-  $kirby->set('option', 'slk.cloudconvert.callbackuri', 'api/slkcallback');
+  $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/action/sermon-complete');
+  $kirby->set('option', 'slk.cloudconvert.callbackuri', 'action/sermon-complete');
 
   // Blueprints
   $kirby->set('blueprint', 'library',     __DIR__ . DS . 'blueprints' . DS . 'library.yml');
@@ -115,7 +120,7 @@
       }
 
       if($file->mime() != 'audio/mpeg') {
-        $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
+        $cloudconvert = new Api(kirby()->get('option', 'slk.cloudconvert.apikey'));
 
         $process = $cloudconvert->createProcess([
           'inputformat'   => 'm4a',
@@ -130,7 +135,8 @@
           ],
           'input'             => 'download',
           'file'              => $file->url(),
-          'callback'          => c::get('slk.cloudconvert.callbackurl')
+          'callback'          => kirby()->get('option', 'slk.cloudconvert.callbackurl'),
+          'tag'               => $file->page()->uri()
         ]);
       }
     }
@@ -138,8 +144,17 @@
 
     // Routes
     $kirby->set('route', array(
-      'pattern'     => c::get('slk.cloudconvert.callbackuri'),
+      'pattern'     => kirby()->get('option', 'slk.cloudconvert.callbackuri'),
       'action'      => function() {
-        //$cloudconvert = new Api(c::get('slk.cloudconvert.apikey'), get('id'));
+        $cloudconvert = new Api(kirby()->get('slk.cloudconvert.apikey'), get('id'));
+
+        $process = new Process($cloudconvert, kirby()->request()->url());
+
+        $sermon = site()->page($process->tag());
+        $path = "{$sermon->uri()}.{$process->output->ext}";
+
+        $process->refresh()->download($path);
+
+        return false;
       }
     ));
