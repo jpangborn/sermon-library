@@ -1,0 +1,7 @@
+{
+    "name": "Sermon Library for Kirby",
+    "description": "Sermon Library for Kirby",
+    "require": {
+        "cloudconvert/cloudconvert-php": "2.2.*"
+    }
+}
