@@ -10,14 +10,14 @@
   ]);
 
   // Options
-  $kirby->set('option', 'slk.main.uri', 'sermons/');
-  $kirby->set('option', 'slk.series.uri', 'sermons/series/');
-  $kirby->set('option', 'slk.language', 'en');
-  $kirby->set('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery');
-  $kirby->set('option', 'slk.esvapi.key', 'IP');
-  $kirby->set('option', 'slk.cloudconvert.apikey', '');
-  $kirby->set('option', 'slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/action/sermon-complete');
-  $kirby->set('option', 'slk.cloudconvert.callbackuri', 'action/sermon-complete');
+  $kirby->set('option', 'slk.main.uri', c::get('slk.main.uri', 'sermons/'));
+  $kirby->set('option', 'slk.series.uri', c::get('slk.series.uri', 'sermons/series/'));
+  $kirby->set('option', 'slk.language', c::get('slk.language', 'en'));
+  $kirby->set('option', 'slk.esvapi.url', c::get('slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery'));
+  $kirby->set('option', 'slk.esvapi.key', c::get('slk.esvapi.key', 'IP'));
+  //$kirby->set('option', 'slk.cloudconvert.apikey', '');
+  $kirby->set('option', 'slk.cloudconvert.callbackurl', c::get('slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/action/sermon-complete'));
+  $kirby->set('option', 'slk.cloudconvert.callbackuri', c::get('slk.cloudconvert.callbackuri', 'action/sermon-complete'));
 
   // Blueprints
   $kirby->set('blueprint', 'library',     __DIR__ . DS . 'blueprints' . DS . 'library.yml');
@@ -76,7 +76,7 @@
 			'lastBuildDate'    => date(DateTime::RFC822),
 			'owner_name'			 => null,
 			'owner_email' 		 => null,
-			'generator'			   => kirby()->option('podcast.generator', 'Sermon Library for Kirby'),
+			'generator'			   => kirby()->option('slk.generator', 'Sermon Library for Kirby'),
 			'docs'						 => 'http://www.apple.com/itunes/podcasts/specs.htm',
 			'datefield'			   => 'date',
 			'header'					 => true
