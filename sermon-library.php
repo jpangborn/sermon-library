@@ -131,6 +131,8 @@
   $kirby->set('route', array(
     'pattern'     => c::get('slk.cloudconvert.callbackuri'),
     'action'      => function() {
+      file_put_contents('info.txt', get('url'));
+
       $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
       $process = new Process($cloudconvert, get('url'));
