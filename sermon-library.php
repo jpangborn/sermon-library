@@ -131,15 +131,15 @@
   $kirby->set('route', array(
     'pattern'     => c::get('slk.cloudconvert.callbackuri'),
     'action'      => function() {
-      file_put_contents('info.txt', get('url'));
-
       $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
       $process = new Process($cloudconvert, get('url'));
       $process->refresh();
 
       $sermon = site()->page($process->tag);
-      $path = $sermon->dirname() . DS . $process->output->filename;
+      $path = kirby()->roots()->content() . DS . $sermon->dirname() . DS . $process->output->filename;
+
+      file_put_contents('info.txt', $path)
 
       if($process->step == 'finished') {
         $process->download($path);
