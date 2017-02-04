@@ -139,8 +139,6 @@
       $sermon = site()->page($process->tag);
       $path = kirby()->roots()->content() . DS . $sermon->diruri() . DS . $process->output->filename;
 
-      file_put_contents('info.txt', $path);
-
       if($process->step == 'finished') {
         $process->download($path);
       } else {
