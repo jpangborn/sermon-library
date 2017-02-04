@@ -132,12 +132,6 @@
     array(
       'pattern'     => c::get('slk.cloudconvert.callbackuri'),
       'action'      => function() {
-        if(is_null(get('url'))) {
-          echo 'Error: URL Missing';
-          throw new Exception('Missing Parameter: URL');
-          response::error();
-        }
-
         $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
         $process = new Process($cloudconvert, get('url'));
