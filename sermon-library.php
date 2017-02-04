@@ -129,24 +129,22 @@
 
   // Routes
   $kirby->set('route', array(
-    array(
-      'pattern'     => c::get('slk.cloudconvert.callbackuri'),
-      'action'      => function() {
-        $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
+    'pattern'     => c::get('slk.cloudconvert.callbackuri'),
+    'action'      => function() {
+      $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
-        $process = new Process($cloudconvert, get('url'));
-        $process->refresh();
+      $process = new Process($cloudconvert, get('url'));
+      $process->refresh();
 
-        $sermon = site()->page($process->tag);
-        $path = $sermon->dirname() . DS . $process->output->filename;
+      $sermon = site()->page($process->tag);
+      $path = $sermon->dirname() . DS . $process->output->filename;
 
-        if($process->step == 'finished') {
-          $process->download($path);
-        } else {
-          throw new Exception('Conversion Error: ' . $process->message);
-        }
-
-        response::success();
+      if($process->step == 'finished') {
+        $process->download($path);
+      } else {
+        throw new Exception('Conversion Error: ' . $process->message);
       }
-    )
+
+      response::success();
+    }
   ));
