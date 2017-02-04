@@ -143,7 +143,6 @@
         if($process->step == 'finished') {
           $process->download($path);
         } else {
-          response::error();
           throw new Exception('Conversion Error: ' . $process->message);
         }
 
