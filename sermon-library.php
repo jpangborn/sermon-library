@@ -137,7 +137,7 @@
       $process->refresh();
 
       $sermon = site()->page($process->tag);
-      $path = kirby()->roots()->content() . DS . $sermon->dirname() . DS . $process->output->filename;
+      $path = kirby()->roots()->content() . DS . $sermon->diruri() . DS . $process->output->filename;
 
       file_put_contents('info.txt', $path);
 
