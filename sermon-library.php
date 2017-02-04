@@ -9,16 +9,6 @@
     'slk\\sermonpage'  => __DIR__ . DS . 'models' . DS . 'sermon.php'
   ]);
 
-  // Options
-  $kirby->set('option', 'slk.main.uri', c::get('slk.main.uri', 'sermons/'));
-  $kirby->set('option', 'slk.series.uri', c::get('slk.series.uri', 'sermons/series/'));
-  $kirby->set('option', 'slk.language', c::get('slk.language', 'en'));
-  $kirby->set('option', 'slk.esvapi.url', c::get('slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery'));
-  $kirby->set('option', 'slk.esvapi.key', c::get('slk.esvapi.key', 'IP'));
-  //$kirby->set('option', 'slk.cloudconvert.apikey', '');
-  $kirby->set('option', 'slk.cloudconvert.callbackurl', c::get('slk.cloudconvert.callbackurl', 'http://www.calvarylexington.com/action/sermon-complete'));
-  $kirby->set('option', 'slk.cloudconvert.callbackuri', c::get('slk.cloudconvert.callbackuri', 'action/sermon-complete'));
-
   // Blueprints
   $kirby->set('blueprint', 'library',     __DIR__ . DS . 'blueprints' . DS . 'library.yml');
   $kirby->set('blueprint', 'series-list', __DIR__ . DS . 'blueprints' . DS . 'series-list.yml');
@@ -76,7 +66,7 @@
 			'lastBuildDate'    => date(DateTime::RFC822),
 			'owner_name'			 => null,
 			'owner_email' 		 => null,
-			'generator'			   => kirby()->option('slk.generator', 'Sermon Library for Kirby'),
+			'generator'			   => c::get('slk.generator', 'Sermon Library for Kirby'),
 			'docs'						 => 'http://www.apple.com/itunes/podcasts/specs.htm',
 			'datefield'			   => 'date',
 			'header'					 => true
@@ -119,42 +109,51 @@
         }
       }
 
-      if($file->mime() != 'audio/mpeg') {
-        $cloudconvert = new Api(kirby()->get('option', 'slk.cloudconvert.apikey'));
+      // Convert File
+      $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
-        $process = $cloudconvert->createProcess([
-          'inputformat'   => 'm4a',
-          'outputformat'  => 'mp3'
-        ]);
-
-        $process->start([
-          'outputformat'      => 'mp3',
-          'converteroptions'  => [
-            'audio_channels'  => 1,
-            'audio_qscale'    => 7
-          ],
-          'input'             => 'download',
-          'file'              => $file->url(),
-          'callback'          => kirby()->get('option', 'slk.cloudconvert.callbackurl'),
-          'tag'               => $file->page()->uri()
-        ]);
-      }
+      $cloudconvert->convert([
+        'inputformat'   => $file->extension(),
+        'outputformat'      => 'mp3',
+        'input'             => 'download',
+        'file'              => $file->url(),
+        'converteroptions'  => [
+          'audio_channels'  => 1,
+          'audio_qscale'    => 7
+        ],
+        'callback'          => url(c::get('slk.cloudconvert.callbackuri')),
+        'tag'               => $file->page()->uri()
+      ]);
     }
   });
 
-    // Routes
-    $kirby->set('route', array(
-      'pattern'     => kirby()->get('option', 'slk.cloudconvert.callbackuri'),
+  // Routes
+  $kirby->set('route', array(
+    array(
+      'pattern'     => c::get('slk.cloudconvert.callbackuri'),
       'action'      => function() {
-        $cloudconvert = new Api(kirby()->get('slk.cloudconvert.apikey'), get('id'));
+        if(is_null(get('url'))) {
+          echo 'Error: URL Missing';
+          throw new Exception('Missing Parameter: URL');
+          response::error();
+        }
 
-        $process = new Process($cloudconvert, kirby()->request()->url());
+        $cloudconvert = new Api(c::get('slk.cloudconvert.apikey'));
 
-        $sermon = site()->page($process->tag());
-        $path = "{$sermon->uri()}.{$process->output->ext}";
+        $process = new Process($cloudconvert, get('url'));
+        $process->refresh();
 
-        $process->refresh()->download($path);
+        $sermon = site()->page($process->tag);
+        $path = $sermon->dirname() . DS . $process->output->filename;
 
-        return false;
+        if($process->step == 'finished') {
+          $process->download($path);
+        } else {
+          response::error();
+          throw new Exception('Conversion Error: ' . $process->message);
+        }
+
+        response::success();
       }
-    ));
+    )
+  ));

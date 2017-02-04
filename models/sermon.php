@@ -46,7 +46,7 @@
 
 			$options['passage'] = $passage;
 
-			$scripture = remote::get(kirby()->get('option', 'slk.esvapi.url'), array('data' => $options));
+			$scripture = remote::get(kirby()->get('option', 'slk.esvapi.url', 'http://www.esvapi.org/v2/rest/passageQuery'), array('data' => $options));
 
 			return $scripture;
 		}
