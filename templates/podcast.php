@@ -40,7 +40,7 @@
 		<docs><?= xml($docs) ?></docs>
 
 		<?php if($owner_email): ?>
-		<webMaster><?= xml($owner_email) ?></webMaster>
+		<webMaster><?= xml($owner_email) ?> (<?= xml($owner_name) ?>)</webMaster>
 		<itunes:owner>
 			<itunes:name><?= xml($owner_name) ?></itunes:name>
 			<itunes:email><?= xml($owner_email) ?></itunes:email>
