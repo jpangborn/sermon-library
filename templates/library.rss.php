@@ -1,6 +1,8 @@
-<?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip()->limit(25) ?>
+<?php
 
-<?= $sermons->podcast(array(
+$sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip()->limit(25);
+
+echo $sermons->podcast(array(
     'title'               => $page->podcast_title(),
     'subtitle'            => $page->podcast_subtitle(),
     'description'         => $page->podcast_description(),
@@ -18,4 +20,3 @@
     'docs'						    => 'http://www.apple.com/itunes/podcasts/specs.htm',
     'datefield'			      => 'date',
     'header'					    => true));
-?>
