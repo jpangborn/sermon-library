@@ -32,6 +32,7 @@
   $kirby->set('snippet',   'sermons-row',     __DIR__ . DS . 'snippets' . DS . 'sermons-row.php');
 
   // Controllers
+  $kirby->set('controller', 'library.rss',    __DIR__ . DS . 'controllers' . DS . 'library.rss.php');
   $kirby->set('controller', 'sermon',         __DIR__ . DS . 'controllers' . DS . 'sermon.php');
   $kirby->set('controller', 'series',         __DIR__ . DS . 'controllers' . DS . 'series.php');
   $kirby->set('controller', 'search',         __DIR__ . DS . 'controllers' . DS . 'search.php');
@@ -90,7 +91,7 @@
 		$rss = '<?xml version="1.0" encoding="UTF-8"?>';
 
 		// Build Podcast RSS Feed
-		$rss .= tpl::load(__DIR__ . DS . 'template' . DS . 'podcast.php', $options);
+		$rss .= tpl::load(__DIR__ . DS . 'templates' . DS . 'podcast.php', $options);
 
 		return $rss;
   });

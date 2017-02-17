@@ -1,7 +1,5 @@
 <?php
 
-$sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip()->limit(25);
-
 echo $sermons->podcast(array(
     'title'               => $page->podcast_title(),
     'subtitle'            => $page->podcast_subtitle(),
