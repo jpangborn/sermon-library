@@ -87,7 +87,7 @@
 		// Send the XML header
 		if($options['header']) header::type('text/xml');
 
-		$rss = '<?xml version="1.0" encoding="UTF-8">';
+		$rss = '<?xml version="1.0" encoding="UTF-8"?>';
 
 		// Build Podcast RSS Feed
 		$rss .= tpl::load(__DIR__ . DS . 'template' . DS . 'podcast.php', $options);
