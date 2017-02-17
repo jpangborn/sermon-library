@@ -62,7 +62,7 @@
 			<itunes:summary><![CDATA[<?= $item->description()->kirbytext() ?>]]></itunes:summary>
 			<?php endif ?>
 
-			<?php foreach($item->audio()->filterBy('extension', 'mp3') as $audio ?>
+			<?php foreach($item->audio()->filterBy('extension', 'mp3') as $audio): ?>
 			<enclosure url="<?= xml($audio->url()) ?>" length="<?= xml($audio->size()) ?>" type="<?= xml($audio->mime()) ?>"/>
 			<?php endforeach ?>
 
