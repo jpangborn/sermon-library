@@ -6,7 +6,7 @@
     'title'               => $page->podcastTitle(),
     'subtitle'            => $page->podcastSubtitle(),
     'description'         => $page->podcastDescription(),
-    'author'              => site()->user($page->podcastAuthor())->name(),
+    'author'              => site()->users()->find($page->podcastAuthor())->name(),
     'image'               => $page->podcastImage(),
     'category'				    => $page->podcastItunesCategory(),
     'subcategory' 		    => $page->podcastItunesSubcategory(),
