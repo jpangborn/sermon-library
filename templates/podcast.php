@@ -74,7 +74,7 @@
 
 			<itunes:duration><?= xml($item->duration()) ?></itunes:duration>
 
-			<?php if($item->content()-has('keywords')): ?>
+			<?php if($item->content()->has('keywords')): ?>
 			<itunes:keywords><?= xml($item->keywords()) ?></itunes:keywords>
 			<?php endif ?>
 		</item>
