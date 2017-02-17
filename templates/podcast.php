@@ -62,11 +62,14 @@
 			<itunes:summary><![CDATA[<?= $item->description()->kirbytext() ?>]]></itunes:summary>
 			<?php endif ?>
 
-			<?php $podcastAudio = $item->audio()->filterBy('extension', 'mp3')->first() ?>
-			<enclosure url="<?= xml($podcastAudio->url()) ?>" length="<?= xml($podcastAudio->size()) ?>" type="<?= xml($podcastAudio->mime()) ?>"/>
+			<?php foreach($item->audio()->filterBy('extension', 'mp3') as $audio ?>
+			<enclosure url="<?= xml($audio->url()) ?>" length="<?= xml($audio->size()) ?>" type="<?= xml($audio->mime()) ?>"/>
+			<?php endforeach ?>
 
 			<pubDate><?= $item->date(DateTime::RFC822, $datefield) ?></pubDate>
-			<itunes:author><?= xml($item->teacher()) ?></itunes:author>
+
+			<?php $teacher = site()->users()->find($item->teacher()) ?>
+			<itunes:author><?= xml($teacher->firstname() . ' ' . $teacher->lastname()) ?></itunes:author>
 			<itunes:explicit><?= xml($explicit) ?></itunes:explicit>
 
 			<itunes:duration><?= xml($item->duration()) ?></itunes:duration>
