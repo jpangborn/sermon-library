@@ -10,31 +10,31 @@
   ]);
 
   // Blueprints
-  $kirby->set('blueprint', 'library',     __DIR__ . DS . 'blueprints' . DS . 'library.yml');
-  $kirby->set('blueprint', 'series-list', __DIR__ . DS . 'blueprints' . DS . 'series-list.yml');
-  $kirby->set('blueprint', 'series',      __DIR__ . DS . 'blueprints' . DS . 'series.yml');
-  $kirby->set('blueprint', 'year',        __DIR__ . DS . 'blueprints' . DS . 'year.yml');
-  $kirby->set('blueprint', 'sermon',      __DIR__ . DS . 'blueprints' . DS . 'sermon.yml');
-  $kirby->set('blueprint', 'search',      __DIR__ . DS . 'blueprints' . DS . 'search.yml');
+  $kirby->set('blueprint', 'library',         __DIR__ . DS . 'blueprints' . DS . 'library.yml');
+  $kirby->set('blueprint', 'series-list',     __DIR__ . DS . 'blueprints' . DS . 'series-list.yml');
+  $kirby->set('blueprint', 'series',          __DIR__ . DS . 'blueprints' . DS . 'series.yml');
+  $kirby->set('blueprint', 'year',            __DIR__ . DS . 'blueprints' . DS . 'year.yml');
+  $kirby->set('blueprint', 'sermon',          __DIR__ . DS . 'blueprints' . DS . 'sermon.yml');
+  $kirby->set('blueprint', 'search',          __DIR__ . DS . 'blueprints' . DS . 'search.yml');
 
   // Templates
-  $kirby->set('template',  'library',     __DIR__ . DS . 'templates' . DS . 'library.php');
-  //$kirby->set('template',  'library',     __DIR__ . DS . 'templates' . DS . 'library.rss.php');
-  $kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.php');
-  //$kirby->set('template',  'series',      __DIR__ . DS . 'templates' . DS . 'series.rss.php');
-  $kirby->set('template',  'sermon',      __DIR__ . DS . 'templates' . DS . 'sermon.php');
-  $kirby->set('template',  'search',      __DIR__ . DS . 'templates' . DS . 'search.php');
+  $kirby->set('template',  'library',         __DIR__ . DS . 'templates' . DS . 'library.php');
+  $kirby->set('template',  'library',         __DIR__ . DS . 'templates' . DS . 'library.rss.php');
+  $kirby->set('template',  'series',          __DIR__ . DS . 'templates' . DS . 'series.php');
+  //$kirby->set('template',  'series',          __DIR__ . DS . 'templates' . DS . 'series.rss.php');
+  $kirby->set('template',  'sermon',          __DIR__ . DS . 'templates' . DS . 'sermon.php');
+  $kirby->set('template',  'search',          __DIR__ . DS . 'templates' . DS . 'search.php');
 
   // Snippets
-  $kirby->set('snippet',   'series-sidebar', __DIR__ . DS . 'snippets' . DS . 'series-sidebar.php');
-  $kirby->set('snippet',   'search-sidebar', __DIR__ . DS . 'snippets' . DS . 'search-sidebar.php');
-  $kirby->set('snippet',   'sermon',         __DIR__ . DS . 'snippets' . DS . 'sermon.php');
-  $kirby->set('snippet',   'sermons-row',    __DIR__ . DS . 'snippets' . DS . 'sermons-row.php');
+  $kirby->set('snippet',   'series-sidebar',  __DIR__ . DS . 'snippets' . DS . 'series-sidebar.php');
+  $kirby->set('snippet',   'search-sidebar',  __DIR__ . DS . 'snippets' . DS . 'search-sidebar.php');
+  $kirby->set('snippet',   'sermon',          __DIR__ . DS . 'snippets' . DS . 'sermon.php');
+  $kirby->set('snippet',   'sermons-row',     __DIR__ . DS . 'snippets' . DS . 'sermons-row.php');
 
   // Controllers
-  $kirby->set('controller', 'sermon',     __DIR__ . DS . 'controllers' . DS . 'sermon.php');
-  $kirby->set('controller', 'series',     __DIR__ . DS . 'controllers' . DS . 'series.php');
-  $kirby->set('controller', 'search',     __DIR__ . DS . 'controllers' . DS . 'search.php');
+  $kirby->set('controller', 'sermon',         __DIR__ . DS . 'controllers' . DS . 'sermon.php');
+  $kirby->set('controller', 'series',         __DIR__ . DS . 'controllers' . DS . 'series.php');
+  $kirby->set('controller', 'search',         __DIR__ . DS . 'controllers' . DS . 'search.php');
 
   // Models
   $kirby->set('page::model', 'sermon', 'SLK\\SermonPage');
@@ -141,6 +141,7 @@
 
       if($process->step == 'finished') {
         $process->download($path);
+        // Add Code to Make Page Visible.
       } else {
         throw new Exception('Conversion Error: ' . $process->message);
       }
