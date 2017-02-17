@@ -32,7 +32,7 @@
 		<?php endif ?>
 
 		<language><?= xml($language) ?></language>
-		<copyright><?= xml($copyright) ?><copyright>
+		<copyright><?= xml($copyright) ?></copyright>
 
 		<generator><?= c::get('podcast.generator', 'Sermon Library for Kirby'); ?></generator>
 		<lastBuildDate><?= $lastBuildDate ?></lastBuildDate>
