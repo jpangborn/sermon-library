@@ -9,7 +9,7 @@
 		<?php endif ?>
 
 		<?php if($subtitle): ?>
-		<itunes:subitle><?= xml($subtitle) ?></itunes:subtitle>
+		<itunes:subtitle><?= xml($subtitle) ?></itunes:subtitle>
 		<?php endif ?>
 
 		<?php if($author): ?>
@@ -22,7 +22,7 @@
 			<?php if($subcategory): ?>
 			<itunes:category text="<?= xml($subcategory) ?>"/>
 			<?php endif ?>
-		<itunes:category>
+		</itunes:category>
 		<?php endif ?>
 
 		<itunes:explicit><?= xml($explicit) ?></itunes:explicit>
