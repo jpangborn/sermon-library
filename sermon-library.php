@@ -58,6 +58,7 @@
 			'subtitle'  			 => null,
 			'description' 		 =>	null,
 			'author'					 => null,
+      'link'             => url(),
 			'image'					   =>	null,
 			'category'				 => null,
 			'subcategory' 		 =>	null,
