@@ -1,21 +1,19 @@
 <?php $sermons = $page->grandChildren()->visible()->filterBy('template', 'sermon')->flip()->limit(25) ?>
 
-<?php
-
-  $sermons->podcast(array(
-    'title'               => $page->podcastTitle(),
-    'subtitle'            => $page->podcastSubtitle(),
-    'description'         => $page->podcastDescription(),
-    'author'              => site()->users()->find($page->podcastAuthor())->name(),
-    'image'               => $page->podcastImage(),
-    'category'				    => $page->podcastItunesCategory(),
-    'subcategory' 		    => $page->podcastItunesSubcategory(),
+<?= $sermons->podcast(array(
+    'title'               => $page->podcast_title(),
+    'subtitle'            => $page->podcast_subtitle(),
+    'description'         => $page->podcast_description(),
+    'author'              => site()->users()->find($page->podcast_author())->name(),
+    'image'               => $page->podcast_image(),
+    'category'				    => $page->podcast_itunes_category(),
+    'subcategory' 		    => $page->podcast_itunes_subcategory(),
     'explicit'				    => 'Clean',
     'language'				    => 'en-us',
-    'copyright'			      => $page->podcastCopyright(),
+    'copyright'			      => $page->podcast_copyright(),
     'lastBuildDate'       => date(DateTime::RFC822),
-    'owner_name'			    => site()->user($page->podcastOwner())->name(),
-    'owner_email' 		    => site()->user($page->podcastOwner())->email(),
+    'owner_name'			    => site()->users()->find($page->podcast_owner())->name(),
+    'owner_email' 		    => site()->users()->find($page->podcast_owner())->email(),
     'generator'			      => c::get('slk.generator', 'Sermon Library for Kirby'),
     'docs'						    => 'http://www.apple.com/itunes/podcasts/specs.htm',
     'datefield'			      => 'date',
