@@ -73,7 +73,7 @@
 		);
 
 		// Merge user supplied options with defaults
-		$options = array_merge($default, $params);
+		$options = array_merge($defaults, $params);
 
 		// Sort items by date
 		$items = $pages->sortBy($options['datefield'], 'desc');
