@@ -146,6 +146,8 @@
       if($process->step == 'finished') {
         $process->download($path);
         // Add Code to Make Page Visible.
+        // Update Duration
+        // Delete M4A file
       } else {
         throw new Exception('Conversion Error: ' . $process->message);
       }
@@ -183,7 +185,6 @@
               } else {
                 $hours = 0;
               }
-
               break;
           }
 

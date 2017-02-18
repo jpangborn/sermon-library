@@ -12,7 +12,7 @@
     	</audio>
       <?php $teacher = $site->users()->find($sermon->teacher()) ?>
     	<p>
-        Series: <?= $site->pages()->findByURI($sermon->series())->title() ?><br>
+        Series: <?= r($sermon->series(), $site->pages()->findByURI($sermon->series())->title()) ?><br>
         Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?><br>
         on <?= $sermon->date('l, F j, Y') ?>
       </p>
