@@ -172,6 +172,8 @@
           if($minutes > 60) {
             $hours = intval($minutes / 60);
             $minutes = $minutes - $hours * 60;
+          } else {
+            $hours = 0;
           }
 
           $duration = sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
