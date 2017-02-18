@@ -1,5 +1,6 @@
 <?php
   require __DIR__ . DS . 'vendor' . DS . 'autoload.php';
+  require __DIR__ . DS . 'vendor' . DS . 'getid3' . DS . 'getid3.php';
 
   use \CloudConvert\Api;
   use \CloudConvert\Process;
@@ -150,5 +151,35 @@
       }
 
       response::success();
+    }
+  ));
+
+  $kirby->set('route', array(
+    'pattern'     => 'action/set-duration',
+    'action'      => function() {
+      $id3 = new getID3();
+
+      $sermons = site()->page('sermons')->grandchildren()->filterBy('template', 'sermon');
+
+      foreach($sermons as $sermon) {
+        if($sermon->hasAudio()) {
+          $audio = $sermon->audio()->filterBy('extension', 'mp3')->first();
+
+          $info = $id3->analyze($audio->root());
+          $duration = $info['playtime_string'];
+          list($minutes, $seconds) = explode(':', $duration);
+
+          if($minutes > 60) {
+            $hours = intval($minutes / 60);
+            $minutes = $minutes - $hours * 60;
+          }
+
+          $duration = sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
+
+          $audio->update(array(
+            'duration' => $duration
+          ));
+        }
+      }
     }
   ));
