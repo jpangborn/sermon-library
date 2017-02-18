@@ -1,12 +1,12 @@
 title: Sermon Library - Year
 deletable: false
 pages:
-	num:
-		mode: date
-		field: date
-	sort: flip
-	template: sermon
+  num:
+    mode: date
+    field: date
+  sort: flip
+  template: sermon
 fields:
-	title:
-		label: Title
-		type: text
+  title:
+    label: Title
+    type: text
