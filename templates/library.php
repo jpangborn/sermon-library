@@ -31,10 +31,12 @@
 
                 <!-- Sidebar -->
   								<div id="sidebar">
-                    <?php snippet('search-sidebar'); ?>
-                    
+                    <?php snippet('search-sidebar') ?>
+
                     <?php $series_list = $page->grandchildren()->visible()->filterBy('template', 'series')->flip() ?>
                     <?php snippet('series-sidebar', array('series_list' => $series_list)) ?>
+
+                    <?php snippet('subscribe-siderbar') ?>
                   </div>
               </div>
             </div>
