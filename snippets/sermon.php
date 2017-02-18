@@ -1,6 +1,8 @@
 <article class="sermon">
 	<h3 class="sermon-title"><a href="<?= $sermon->url() ?>"><?= $sermon->title() ?></a></h3>
+	<?php if(!$sermon->series()->empty()): ?>
 	<h4 class="sermon-series">Series: <?= $site->page($sermon->series())->title() ?></h4>
+	<?php endif ?>
 
 	<audio class="sermon-audio" controls>
 		<?php if($audio = $sermon->audio()->filterBy('extension', 'mp3')->first()): ?>
