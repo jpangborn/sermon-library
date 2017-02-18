@@ -2,7 +2,7 @@
   "name": "sermon-library",
   "description": "Sermon Library for Kirby",
   "author": "Joshua Pangborn <joshua.pangborn@gmail.com>",
-  "version": "0.9",
+  "version": "1.0",
   "type": "kirby-plugin",
   "license": "Sermon Library for Kirby End User License Agreement"
 }
