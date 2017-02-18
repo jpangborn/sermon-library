@@ -34,8 +34,11 @@
                 			</audio>
 
                       <p>
-                        Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?><br>
+                        Taught by <?= $teacher->firstname() ?> <?= $teacher->lastname() ?> on <?= $page->date('l, F j, Y') ?>
+                        <?php if(!$page->series()->empty()): ?>
+                        <br>
                         Series: <?= $series->title() ?>
+                        <?php endif ?>
                       </p>
 
                 			<?php if(!$page->description()->empty()): ?>
