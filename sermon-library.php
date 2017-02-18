@@ -167,13 +167,24 @@
 
           $info = $id3->analyze($audio->root());
           $duration = $info['playtime_string'];
-          list($minutes, $seconds) = explode(':', $duration);
 
-          if($minutes > 60) {
-            $hours = intval($minutes / 60);
-            $minutes = $minutes - $hours * 60;
-          } else {
-            $hours = 0;
+          $parts = explode(':', $duration);
+
+          switch(count($parts)) {
+            case 3:
+              list($hours, $minutes, $seconds) = $parts;
+              break;
+            case 2:
+              list($minutes, $seconds) = $parts;
+
+              if($minutes > 60) {
+                $hours = intval($minutes / 60);
+                $minutes = $minutes - $hours * 60;
+              } else {
+                $hours = 0;
+              }
+
+              break;
           }
 
           $duration = sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);

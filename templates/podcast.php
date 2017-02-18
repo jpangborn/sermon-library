@@ -72,7 +72,7 @@
 			<itunes:author><?= xml($teacher->firstname() . ' ' . $teacher->lastname()) ?></itunes:author>
 			<itunes:explicit><?= xml($explicit) ?></itunes:explicit>
 
-			<itunes:duration><?= xml($item->duration()) ?></itunes:duration>
+			<itunes:duration><?= xml($item->audio()->filterBy('extension', 'mp3')->first()->duration()) ?></itunes:duration>
 
 			<?php if($item->content()->has('keywords')): ?>
 			<itunes:keywords><?= xml($item->keywords()) ?></itunes:keywords>
