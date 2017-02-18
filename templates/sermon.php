@@ -19,10 +19,12 @@
                       <header class="style1">
                         <h2><?= $page->title()->html() ?></h2>
                       </header>
-                      <?php if(!$series->cover()->empty()): ?>
-                      <a href="#" class="image featured">
-                        <img src="<?= $series->image($series->cover())->url() ?>">
-                      </a>
+                      <?php if(!page->series()-empty()): ?>
+                        <?php if(!$series->cover()->empty()): ?>
+                        <a href="#" class="image featured">
+                          <img src="<?= $series->image($series->cover())->url() ?>">
+                        </a>
+                        <?php endif ?>
                       <?php endif ?>
 
                 			<audio controls>
