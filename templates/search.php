@@ -36,6 +36,11 @@
                   <p>
                     Found <?= $results->totalCount() ?> sermons.
                   </p>
+
+                  <header>
+                    <h2>Powered by:</h2>
+                  </header>
+                  <img src="<?= url('assets/plugins/sermon-library/images/algolia-logo.jpg') ?>" alt="Powered by Algolia.">
                 </div>
             </div>
             <div class="8u 12u(mobile)">
