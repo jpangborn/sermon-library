@@ -40,7 +40,7 @@
                   <header>
                     <h2>Powered by:</h2>
                   </header>
-                  <img src="<?= url('assets/plugins/sermon-library/images/algolia-logo.jpg') ?>" alt="Powered by Algolia.">
+                  <img src="<?= url('assets/plugins/sermon-library/images/algolia-logo.jpg') ?>" alt="Powered by Algolia." style="width: 100px;">
                 </div>
             </div>
             <div class="8u 12u(mobile)">
