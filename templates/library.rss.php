@@ -6,7 +6,7 @@ echo $sermons->podcast(array(
     'description'         => $page->podcast_description(),
     'link'                => $page->podcast_link(),
     'author'              => site()->users()->find($page->podcast_author())->name(),
-    'image'               => $page->podcast_image(),
+    'image'               => $page->image($page->podcast_image())->url(),
     'category'				    => $page->podcast_itunes_category(),
     'subcategory' 		    => $page->podcast_itunes_subcategory(),
     'explicit'				    => 'Clean',

@@ -28,7 +28,7 @@
 		<itunes:explicit><?= xml($explicit) ?></itunes:explicit>
 
 		<?php if($image): ?>
-		<itunes:image href="<?= xml(url($image)) ?>"/>
+		<itunes:image href="<?= xml($image) ?>"/>
 		<?php endif ?>
 
 		<language><?= xml($language) ?></language>
