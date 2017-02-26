@@ -178,6 +178,8 @@
         $audio->update(array(
           'duration' => $duration
         ));
+
+        algolia()->updatePage($sermon);
       } else {
         throw new Exception('Conversion Error: ' . $process->message);
       }
